@@ -6,5 +6,5 @@
  * Time: 13:09
  */
 return [
-	'hello' => 'Hi'
+	'hello' => 'Привіт'
 ];
