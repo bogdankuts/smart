@@ -11,4 +11,14 @@ use Illuminate\Foundation\Auth\Access\AuthorizesResources;
 class Controller extends BaseController
 {
     use AuthorizesRequests, AuthorizesResources, DispatchesJobs, ValidatesRequests;
+
+	protected $lang = 'ua';
+
+	public function defineLanguage($lang = null) {
+		if ($lang) {
+			$this->lang = $lang;
+		}
+
+		return \App::setLocale($this->lang);
+	}
 }
