@@ -7,7 +7,7 @@ use Closure;
 class LanguageMiddleware {
 
 	/**
-	 * List of all available languages for the site
+	 * Array of all available languages for the site
 	 *
 	 * @var array
 	 */
