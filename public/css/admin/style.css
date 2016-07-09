@@ -1,0 +1,37 @@
+.login_page {
+  background-image: url("../../img/markup/login_3.jpg");
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+  .login_page .filter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #50aec7;
+    opacity: .6; }
+  .login_page .login_card {
+    display: table;
+    margin: auto;
+    margin-top: 15%;
+    padding: 20px;
+    z-index: 99999; }
+    .login_page .login_card h4 {
+      text-align: center;
+      width: 100%; }
+    .login_page .login_card .forgot_link {
+      font-size: 14px;
+      font-weight: 300;
+      color: #464141;
+      float: left;
+      margin-top: 14px; }
+      .login_page .login_card .forgot_link:hover, .login_page .login_card .forgot_link:focus {
+        text-decoration: none; }
+    .login_page .login_card .submit_login {
+      float: right; }
+
+/*# sourceMappingURL=style.css.map */
