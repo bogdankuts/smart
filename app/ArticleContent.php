@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class ArticleContent extends Model {
 	protected $table = 'articles_contents';
+	public $timestamps = false;
+
 
 
 	public function article() {

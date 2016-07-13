@@ -15,8 +15,14 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->increments('profile_id');
 	        $table->integer('category_id')->unsigned();
+	        $table->foreign('category_id')
+	              ->references('category_id')->on('categories');
 	        $table->integer('created_by')->unsigned();
+	        $table->foreign('created_by')
+	              ->references('id')->on('users');
             $table->timestamps();
+	        $table->timestamp('published_at');
+	        $table->integer('views');
         });
     }
 

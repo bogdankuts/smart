@@ -15,11 +15,14 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('article_id');
 	        $table->integer('created_by')->unsigned();
+	        $table->foreign('created_by')
+		        ->references('id')->on('users');
 	        $table->integer('type_id')->unsigned();
 	        $table->string('slug')->unique();
 	        $table->integer('project_id')->default(0);
 	        $table->timestamp('published_at');
             $table->timestamps();
+	        $table->integer('views');
         });
     }
 

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 class BaseController extends Controller {
+	//TODO:think how to use trait in controllers and LanguageMiddleware instead on duplications
 	/**
 	 * Array of all available languages for the site
 	 *

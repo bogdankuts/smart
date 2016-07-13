@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 
 class LanguageMiddleware {
+	//TODO::create fallback function and custom variants of fallbacks instead of changing the language change.
 
 	/**
 	 * Array of all available languages for the site

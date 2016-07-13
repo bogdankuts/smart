@@ -15,8 +15,14 @@ class CreatePositionsTable extends Migration
         Schema::create('positions', function (Blueprint $table) {
             $table->increments('position_id');
 	        $table->integer('category_id')->unsigned();
+	        $table->foreign('category_id')
+	              ->references('category_id')->on('categories');
 	        $table->integer('created_by')->unsigned();
-            $table->timestamps();
+	        $table->foreign('created_by')
+	              ->references('id')->on('users');
+	        $table->timestamp('published_at');
+	        $table->timestamps();
+	        $table->integer('views');
         });
     }
 

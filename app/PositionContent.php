@@ -4,7 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model {
+class PositionContent extends Model {
+	protected $table = 'positions_contents';
 	public $timestamps = false;
 
 }

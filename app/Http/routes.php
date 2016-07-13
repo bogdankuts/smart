@@ -22,7 +22,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin
 		Route::get('/',                     ['as' => 'admin_articles',      'uses' => 'ArticlesController@index']);
 		Route::get('/create',               ['as' => 'create_article',      'uses' => 'ArticlesController@create']);
 		Route::get('/{article}',            ['as' => 'admin_article',       'uses' => 'ArticlesController@show']);
-		Route::patch('/{article}',          ['as' => 'update_article',      'uses' => 'ArticlesController@update']);
+		Route::match(
+		['put','patch'], '/{article}',      ['as' => 'update_article',      'uses' => 'ArticlesController@update']);
 		Route::delete('/{article}',         ['as' => 'delete_article',      'uses' => 'ArticlesController@delete']);
 		Route::get('/{article}/edit',       ['as' => 'edit_article',        'uses' => 'ArticlesController@edit']);
 	});
@@ -30,10 +31,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin
 	//Admins
 	Route::group(['prefix' => 'admins'], function() {
 		Route::post('/',                    ['as' => 'store_admin',         'uses' => 'AdminsController@store']);
-		Route::get('/',                     ['as' => 'admin_admins',        'uses' => 'AdminsController@index']);
+		Route::get('/',                     ['as' => 'admins',              'uses' => 'AdminsController@index']);
 		Route::get('/create',               ['as' => 'create_admin',        'uses' => 'AdminsController@create']);
-		Route::get('/{admin}',              ['as' => 'admin_admin',         'uses' => 'AdminsController@show']);
-		Route::patch('/{admin}',            ['as' => 'update_admin',        'uses' => 'AdminsController@update']);
+		Route::get('/{admin}',              ['as' => 'admin',               'uses' => 'AdminsController@show']);
+		Route::match(
+		['put','patch'], '/{admin}',        ['as' => 'update_admin',        'uses' => 'AdminsController@update']);
 		Route::delete('/{admin}',           ['as' => 'delete_admin',        'uses' => 'AdminsController@delete']);
 		Route::get('/{admin}/edit',         ['as' => 'edit_admin',          'uses' => 'AdminsController@edit']);
 	});
@@ -44,7 +46,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin
 		Route::get('/',                     ['as' => 'admin_reports',       'uses' => 'ReportsController@index']);
 		Route::get('/create',               ['as' => 'create_report',       'uses' => 'ReportsController@create']);
 		Route::get('/{report}',             ['as' => 'admin_report',        'uses' => 'ReportsController@show']);
-		Route::patch('/{report}',           ['as' => 'update_report',       'uses' => 'ReportsController@update']);
+		Route::match(
+		['put','patch'], '/{report}',       ['as' => 'update_report',       'uses' => 'ReportsController@update']);
 		Route::delete('/{report}',          ['as' => 'delete_report',       'uses' => 'ReportsController@delete']);
 		Route::get('/{report}/edit',        ['as' => 'edit_report',         'uses' => 'ReportsController@edit']);
 	});
@@ -55,7 +58,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin
 		Route::get('/',                     ['as' => 'admin_profiles',      'uses' => 'ProfilesController@index']);
 		Route::get('/create',               ['as' => 'create_profile',      'uses' => 'ProfilesController@create']);
 		Route::get('/{profile}',            ['as' => 'admin_profile',       'uses' => 'ProfilesController@show']);
-		Route::patch('/{profile}',          ['as' => 'update_profile',      'uses' => 'ProfilesController@update']);
+		Route::match(
+		['put','patch'], '/{profile}',      ['as' => 'update_profile',      'uses' => 'ProfilesController@update']);
 		Route::delete('/{profile}',         ['as' => 'delete_profile',      'uses' => 'ProfilesController@delete']);
 		Route::get('/{profile}/edit',       ['as' => 'edit_profile',        'uses' => 'ProfilesController@edit']);
 	});
@@ -66,7 +70,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin
 		Route::get('/',                     ['as' => 'admin_positions',     'uses' => 'PositionsController@index']);
 		Route::get('/create',               ['as' => 'create_position',     'uses' => 'PositionsController@create']);
 		Route::get('/{position}',           ['as' => 'admin_position',      'uses' => 'PositionsController@show']);
-		Route::patch('/{position}',         ['as' => 'update_position',     'uses' => 'PositionsController@update']);
+		Route::match(
+		['put','patch'], '/{position}',     ['as' => 'update_position',     'uses' => 'PositionsController@update']);
 		Route::delete('/{position}',        ['as' => 'delete_position',     'uses' => 'PositionsController@delete']);
 		Route::get('/{position}/edit',      ['as' => 'edit_position',       'uses' => 'PositionsController@edit']);
 	});
@@ -113,6 +118,5 @@ Route::get('/stories/{story}/{lang?}',                  ['as' => 'story',       
 Route::get('/about-the-project',                        ['as' => 'about_project',       'uses' => 'PagesController@aboutProject']);
 Route::get('/contacts/{lang?}',                         ['as' => 'contacts',            'uses' => 'PagesController@contacts']);
 Route::get('/{lang?}',                                  ['as' => 'index',               'uses' => 'PagesController@index']);
-
 
 

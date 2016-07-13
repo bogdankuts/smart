@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-use App\Http\Controllers\Controller;
 
-class DashboardController extends Controller {
+class DashboardController extends AdminBaseController {
 
 	public function dashboard() {
 

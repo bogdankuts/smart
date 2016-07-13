@@ -34,4 +34,109 @@
     .login_page .login_card .submit_login {
       float: right; }
 
+.mdl-layout__header-row .mdl-navigation .mdl-navigation__link:hover, .mdl-layout__header-row .mdl-navigation .mdl-navigation__link:focus {
+  cursor: pointer;
+  text-decoration: none; }
+
+.mdl-layout__drawer .mdl-layout-title {
+  padding-left: 0px;
+  text-align: center;
+  font-size: 18px; }
+
+.mdl-layout__drawer .mdl-navigation .active_nav {
+  background-color: #e0e0e0;
+  color: #03A9F4; }
+
+.mdl-layout__drawer .mdl-navigation .mdl-navigation__link {
+  margin-bottom: 3px; }
+  .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover, .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:focus {
+    text-decoration: none; }
+
+.mdl-navigation__devider {
+  height: 1px;
+  width: 100%;
+  background-color: #B6B6B6;
+  margin-top: 3px;
+  margin-bottom: 3px; }
+
+.admin-card {
+  width: 45%;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
+  margin-bottom: 40px;
+  float: left; }
+  .admin-card .mdl-card__supporting-text {
+    width: 100%; }
+    .admin-card .mdl-card__supporting-text table {
+      width: 100%; }
+  .admin-card .delete_admin {
+    width: 100%; }
+
+.main_heading {
+  text-align: center; }
+
+.general {
+  overflow: hidden;
+  padding: 20px; }
+  .general .created,
+  .general .articles_amount {
+    float: left;
+    width: 50%; }
+  .general .last_visit,
+  .general .master {
+    float: right;
+    width: 50%; }
+
+.mdl-card__menu .mdl-menu__container .mdl-menu__item:hover, .mdl-card__menu .mdl-menu__container .mdl-menu__item:focus {
+  text-decoration: none;
+  color: inherit; }
+
+.positions_by_admin,
+.profiles_by_admin {
+  float: left; }
+
+.actions {
+  margin-top: 20px; }
+  .actions a,
+  .actions .delete_entity_form {
+    float: left; }
+    .actions a:hover, .actions a:focus,
+    .actions .delete_entity_form:hover,
+    .actions .delete_entity_form:focus {
+      text-decoration: none;
+      color: inherit; }
+  .actions .delete_entity_form {
+    margin-left: 25px; }
+
+.admin_create_form .mdl-textfield {
+  width: 100%; }
+
+.admin_create_form .add_admin {
+  float: right; }
+
+.body {
+  padding: 20px 30px; }
+
+.add_btn {
+  position: fixed;
+  bottom: 50px;
+  right: 2%;
+  z-index: 9999; }
+  .add_btn a {
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28); }
+  .add_btn:hover a {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.32); }
+  .add_btn:hover, .add_btn:active, .add_btn:focus {
+    outline: none; }
+
+.card {
+  padding: 20px;
+  overflow: hidden; }
+
+.mdl-textfield__label:after {
+  bottom: 15px; }
+
+.help-block {
+  color: darkred; }
+
 /*# sourceMappingURL=style.css.map */
