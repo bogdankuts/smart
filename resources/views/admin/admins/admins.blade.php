@@ -3,6 +3,7 @@
 @extends('admin.partials.drawer')
 
 @section('body')
+	@include('flash::message')
 	<div class="body mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col">
 		@foreach($admins as $admin)
 			<div class="admin-card mdl-card mdl-shadow--2dp">

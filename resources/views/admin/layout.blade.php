@@ -27,6 +27,8 @@
 	@yield('drawer')
 	<main class="mdl-layout__content mdl-color--grey-100">
 		<div class="mdl-grid page-content">
+			@include('flash::message')
+
 			@yield('body')
 		</div>
 	</main>
@@ -40,5 +42,8 @@
 {{--{{ HTML::script('js/new_admin.js') }}--}}
 {{--{{ HTML::script('js/common.js') }}--}}
 {{--{{ HTML::script('js/admin.js') }}--}}
+<script>
+	$('div.alert').not('.alert-important').delay(3000).fadeOut(350);
+</script>
 </body>
 </html>
