@@ -65,13 +65,18 @@ class AdminsController extends AdminBaseController {
 		$data = $this->prepareAdminData($request);
 
 		if ($this->adminEmailIsValid($data['email'])) {
-			Admin::create($data);
+			if(Admin::create($data)) {
+				flash('Новый админ успешно зарегестрирован', 'success');
+
+				return redirect()->back();
+			} else {
+
+				return $this->redirectWithError();
+			}
 		} else {
 
-			return redirect()->back()->withErrors('email', 'unique');
+			return redirect()->back()->withInput()->withErrors(['email' => 'Пользователь с таким email уже существет!']);
 		}
-
-		return redirect()->back();
 	}
 
 	/**
@@ -101,13 +106,18 @@ class AdminsController extends AdminBaseController {
 		$data = $this->prepareAdminData($request);
 
 		if ($this->adminEmailIsValidForUpdate($data['email'], $admin->email)) {
-			$admin->update($data);
+			if($admin->update($data)) {
+				flash('Админ успешно изменен', 'success');
+
+				return redirect()->back();
+			} else {
+
+				return $this->redirectWithError();
+			}
 		} else {
 
-			return redirect()->back()->withErrors('email', 'unique');
+			return redirect()->back()->withInput()->withErrors(['email' => 'Пользователь с таким email уже существет!']);
 		}
-
-		return redirect()->back();
 	}
 
 	/**
@@ -118,9 +128,13 @@ class AdminsController extends AdminBaseController {
 	 */
 	public function delete(Admin $admin) {
 		$this->updateEntitiesOnDelete($admin);
-		$admin->delete();
+		if($admin->delete()) {
+			flash('Админ успешно удален', 'success');
 
-		return redirect()->route('admins');
+			return redirect()->route('admins');
+		}
+
+		return $this->redirectWithError();
 	}
 
 
@@ -140,7 +154,7 @@ class AdminsController extends AdminBaseController {
 	/**
 	 * Validate if email is valid for create from
 	 *
-	 * @string $email
+	 * @param string $email
 	 *
 	 * @return bool
 	 */
@@ -158,8 +172,8 @@ class AdminsController extends AdminBaseController {
 	/**
 	 * Validate if email is valid for update form
 	 *
-	 * @string $email
-	 * @string $old_email
+	 * @param string $email
+	 * @param string $old_email
 	 *
 	 * @return bool
 	 */
