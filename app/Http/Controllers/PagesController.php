@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 class PagesController extends Controller {
-
 	public function index(Request $request) {
 	    return view('welcome');
     }

@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+	@if(Session::has(config('localization.flashKey')))
+		<p>{!! Session::get(config('localization.flashKey')) !!}</p>
+	@endif
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
