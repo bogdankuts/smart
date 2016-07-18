@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model {
@@ -12,12 +13,16 @@ class Article extends Model {
 
 	protected $primaryKey = 'article_id';
 
-	public function getRouteKeyName()
-	{
+	public function getRouteKeyName() {
 		return 'slug';
 	}
 
 	public function content() {
 		return $this->hasOne('App\ArticleContent', 'article_id', 'article_id');
+	}
+
+	public function scopePublished($query) {
+
+		return $query->where('published_at', '<' , Carbon::now());
 	}
 }
