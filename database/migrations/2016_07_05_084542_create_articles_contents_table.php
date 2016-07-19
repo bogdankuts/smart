@@ -25,7 +25,6 @@ class CreateArticlesContentsTable extends Migration
 	        $table->string('title', 256);
 	        $table->text('body');
 	        $table->string('preview_text', 128);
-	        $table->string('image', 256);
         });
     }
 

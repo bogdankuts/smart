@@ -17,7 +17,7 @@
 				<a href="{{route('admin_article', ['article' => $article->slug])}}">{{$article->content->title}}</a>
 				<p>Preview - {{$article->content->preview_text}}</p>
 				<div>Body - {{$article->content->body}}</div>
-				<p>Image - {{$article->content->image}}</p>
+				<p>Image - {{$article->image}}</p>
 			</div>
 		@empty
 			<p>No articles</p>
