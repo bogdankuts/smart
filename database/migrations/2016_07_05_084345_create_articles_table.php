@@ -20,6 +20,7 @@ class CreateArticlesTable extends Migration
 	        $table->integer('type_id')->unsigned();
 	        $table->string('slug')->unique();
 	        $table->integer('project_id')->default(0);
+	        $table->string('image', 256);
 	        $table->timestamp('published_at');
             $table->timestamps();
 	        $table->integer('views');

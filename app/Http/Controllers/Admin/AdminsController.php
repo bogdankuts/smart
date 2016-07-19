@@ -52,6 +52,7 @@ class AdminsController extends AdminBaseController {
 		]);
 	}
 
+	//TODO::refactor store and update methods to abstract the same parts
 	/**
 	 * Save new admin to database
 	 *
@@ -63,7 +64,7 @@ class AdminsController extends AdminBaseController {
 		$data = $this->prepareAdminData($request);
 
 		if ($this->adminEmailIsValid($data['email'])) {
-			if(Admin::create($data)) {
+			if (Admin::create($data)) {
 				flash('Новый админ успешно зарегестрирован', 'success');
 
 				return redirect()->back();
@@ -104,7 +105,7 @@ class AdminsController extends AdminBaseController {
 		$data = $this->prepareAdminData($request);
 
 		if ($this->adminEmailIsValidForUpdate($data['email'], $admin->email)) {
-			if($admin->update($data)) {
+			if ($admin->update($data)) {
 				flash('Админ успешно изменен', 'success');
 
 				return redirect()->back();
@@ -157,7 +158,7 @@ class AdminsController extends AdminBaseController {
 	 * @return bool
 	 */
 	private function adminEmailIsValid($email) {
-		$adminsEmails = Admin::where('id' ,'>' ,0)->pluck('email')->toArray();
+		$adminsEmails = Admin::all()->pluck('email')->toArray();
 		if(in_array($email, $adminsEmails)) {
 
 			return false;
@@ -176,7 +177,7 @@ class AdminsController extends AdminBaseController {
 	 * @return bool
 	 */
 	private function adminEmailIsValidForUpdate($email, $old_email) {
-		$adminsEmails = Admin::where('id' ,'>' ,0)->pluck('email')->toArray();
+		$adminsEmails = Admin::all()->pluck('email')->toArray();
 		if(in_array($email, $adminsEmails) && $email != $old_email) {
 
 			return false;
