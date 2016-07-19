@@ -6,7 +6,7 @@
             <a class="mdl-navigation__link @if ( $env == 'dashboard') active_nav @endif" href="{{route('dashboard')}}">Панель управления</a>
             <div class="mdl-navigation__devider"></div>
 
-            <a class="mdl-navigation__link @if ( $env == 'articles') active_nav @endif" href="{{route('admin_articles')}}">Новости</a>
+            <a class="mdl-navigation__link @if ( $env == 'articles' || $env == 'article') active_nav @endif" href="{{route('admin_articles')}}">Новости</a>
             <a class="mdl-navigation__link @if ( $env == 'change_article') active_nav @endif" href="{{route('create_article')}}">Добавить новость</a>
             <div class="mdl-navigation__devider"></div>
 
