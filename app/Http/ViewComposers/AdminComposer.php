@@ -55,6 +55,14 @@ class AdminComposer {
 				$this->title = 'Администратор';
 				$this->env = 'admin_update';
 				break;
+			case 'admin_articles':
+				$this->title = 'Новости';
+				$this->env = 'articles';
+				break;
+			case 'admin_article':
+				$this->title = 'Новость';
+				$this->env = 'article';
+				break;
 		}
 	}
 

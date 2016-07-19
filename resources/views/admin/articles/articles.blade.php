@@ -4,24 +4,21 @@
 
 @section('body')
 	<div class="body mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col">
-
 		@forelse($articles as $article)
-			<div class="one_article">
-				<p>Id - {{$article->article_id}}</p>
-				<p>Type - {{$article->type_id}}</p>
-				<p>Project - {{$article->project_id}}</p>
-				<p>Published - {{$article->published_at}}</p>
-				<p>Created - {{$article->created_at}}</p>
-				<p>Views - {{$article->views}}</p>
-				<p>Lang - {{$article->content->lang_id}}</p>
-				<a href="{{route('admin_article', ['article' => $article->slug])}}">{{$article->content->title}}</a>
-				<p>Preview - {{$article->content->preview_text}}</p>
-				<div>Body - {{$article->content->body}}</div>
-				<p>Image - {{$article->image}}</p>
-			</div>
+			@foreach($article->content as $content)
+				@include('admin.articles._article_for_list')
+			@endforeach
 		@empty
-			<p>No articles</p>
+			<p>Вы еще не добавляли статьи.</p>
 		@endforelse
+		<div class="add_btn" id="add_btn">
+			<a href="{{route('create_article')}}" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+				<i class="material-icons">add</i>
+			</a>
+		</div>
+		<div class="mdl-tooltip mdl-tooltip--top" for="add_btn">
+			Добавить новость
+		</div>
 	</div>
 @stop
 

@@ -4,38 +4,43 @@ namespace App\Http\Controllers\Admin;
 
 use App\Article;
 
+use App\ArticleContent;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
 
 class ArticlesController extends Controller {
 
-	public function index() {
+	public function index(Article $article) {
 		if (\Auth::user()->master) {
-			$articles = Article::with('content')
-				->orderBy('published_at', 'desc')
-				->get();
+			$articles = $article->selectAllArticles();
 		} else {
-			$articles = Article::with('content')
-				->where('created_by', \Auth::user()->id)
-				->orderBy('published_at', 'desc')
-				->get();
+			$articles = $article->selectAllArticlesByUser(\Auth::user()->id);
 		}
 
 		return view('admin.articles.articles')->with([
-			'articles' => $articles,
-		    'env' => 'articles'
+			'articles'  => $articles,
 		]);
 	}
+
 	public function show(Article $article) {
 
 		return view('admin.articles.article')->with([
-			'article' => $article,
-		    'env'   => 'article'
+			'article'   => $article,
 		]);
 	}
+
+	public function create() {
+
+		return view('admin.articles.create')->with([
+			'submitButton' => 'Добавить'
+		]);
+
+	}
+
 	public function edit() {
-		return 'Some kind of edit form';
+
+		return view('a');
 	}
 	public function update() {
 		dd('Update request');
