@@ -7,6 +7,8 @@ use App\Article;
 use App\ArticleContent;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Project;
+use App\Type;
 use Carbon\Carbon;
 
 class ArticlesController extends Controller {
@@ -33,7 +35,9 @@ class ArticlesController extends Controller {
 	public function create() {
 
 		return view('admin.articles.create')->with([
-			'submitButton' => 'Добавить'
+			'submitButton' => 'Добавить',
+		    'types' => Type::all(),
+		    'projects' => Project::all()
 		]);
 
 	}

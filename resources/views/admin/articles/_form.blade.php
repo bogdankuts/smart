@@ -1,3 +1,39 @@
+<div class="general_parameters">
+	{{--Type--}}
+	{!! Form::select('type', \App\Http\Help::createOptions($types, 'type_id', 'type_title'), 'article', ['class' =>'form-control']) !!}
+	{{--Project--}}
+	{!! Form::select('project', \App\Http\Help::createOptions($projects, 'project_id', 'title'), null, ['class' =>'form-control']) !!}
+
+	{{--slug--}}
+	{{--image--}}
+	{{--published--}}
+
+
+
+
+
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label {{ $errors->has('email') ? ' has-error' : '' }}">
+		{!! Form::label('email', 'E-Mail', ['class' => 'mdl-textfield__label']) !!}
+		{!! Form::text('email', old('email'), ['class'=>'mdl-textfield__input', 'id' => 'email']) !!}
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <textarea name="body" id="editor" cols="30" rows="10"></textarea>
 
 <script src="{{ asset('ckeditor/ckeditor.js') }}" type="text/javascript" charset="utf-8" ></script>

@@ -76,6 +76,18 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth', 'namespace' => 'Admin
 		Route::get('/{position}/edit',      ['as' => 'edit_position',       'uses' => 'PositionsController@edit']);
 	});
 
+	//Positions
+	Route::group(['prefix' => 'projects'], function() {
+		Route::post('/',                    ['as' => 'store_project',      'uses' => 'ProjectsController@store']);
+		Route::get('/',                     ['as' => 'admin_projects',     'uses' => 'ProjectsController@index']);
+		Route::get('/create',               ['as' => 'create_project',     'uses' => 'ProjectsController@create']);
+		Route::get('/{project}',            ['as' => 'admin_project',      'uses' => 'ProjectsController@show']);
+		Route::match(
+			['put','patch'], '/{project}',  ['as' => 'update_project',     'uses' => 'ProjectsController@update']);
+		Route::delete('/{project}',         ['as' => 'delete_project',     'uses' => 'ProjectsController@delete']);
+		Route::get('/{project}/edit',       ['as' => 'edit_project',       'uses' => 'ProjectsController@edit']);
+	});
+
 });
 
 //Auth
