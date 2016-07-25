@@ -13,4 +13,13 @@ use App\Http\Requests\Request;
 
 class Help {
 
+	public static function createOptions($array, $key, $value) {
+		$options = [];
+
+		foreach ($array as $element) {
+			$options[$element->$key] = $element->$value;
+		}
+
+		return $options;
+	}
 }
