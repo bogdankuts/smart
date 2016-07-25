@@ -11,6 +11,6 @@ class ProjectsController extends AdminBaseController {
 
 	public function index() {
 
-		return view('')
+		//return view('')
 	}
 }
